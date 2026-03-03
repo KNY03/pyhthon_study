@@ -32,7 +32,7 @@ if os.path.exists('sangpum_data.txt'): # 읽기 모드에서는 파일의 유무
 
     print("====================================================")
     print("                   < 총 판매 금액 >")
-    all_sell = 0
+    all_sell = 0 # 누적변수에는 초기화 작업이 필요함
     for dct in lst:
         all_sell += dct["sell"]
     print("총 판매 금액은: %30d" % all_sell)

@@ -1,9 +1,10 @@
-﻿# sangpum_file_write_01.py
-# 데이터를 file로 저장
+﻿# -*- coding: utf-8 -*-
+import csv
 
-# -*- coding: utf-8 -*-
+fp = open("sangpum_data.csv", "w", encoding="utf-8", newline='') # csv형식으로 저장
+wr = csv.writer(fp, delimiter=',', quotechar="'",quoting=csv.QUOTE_ALL)
 
-fp = open("sangpum_data.txt", "w", encoding="utf-8") # csv형식으로 저장
+
 # w, r, a 모드가 존재함
 # b - binary: 이진수 형태로 저장
 
@@ -25,8 +26,7 @@ while True:
     dct["sell"] = dct["num"] * dct["price"]
     lst.append(dct)
 
-    fp.write(dct["code"]+ "," + dct["name"]+ "," + str(dct["num"])+ "," + str(dct["price"])+ "," + str(dct["sell"]) + "\n")
-    # w는 줄바꿈 기능이 없기에 \n을 적어주어야 함
+    wr.writerow((dct["code"], dct["name"], dct["num"], dct["price"]))
 
     print()
 

@@ -19,7 +19,7 @@ with open("test.txt", 'r') as f:
 
 with open("test.txt", 'r') as f:
     for line in f:
-        print(line.strip("\n")) 
+        print(line.strip("\n"))
 """
 
 
