@@ -1,4 +1,5 @@
-# 2026.03.25
+﻿# 2026.03.05
+# 성적 클래스 파일
 
 class Sungjuk:
     def __init__(self):
@@ -13,7 +14,7 @@ class Sungjuk:
         self._avg = 0.0
         self._grade = ""
 
-    # --- student number(학번) ---
+    # --- student number ---
     def get_student_num(self):
         return self._student_num
 
@@ -22,7 +23,7 @@ class Sungjuk:
 
     num = property(get_student_num, set_student_num)
 
-    # --- student name(이름) ---
+    # --- student name ---
     def get_student_name(self):
         return self._student_name
 
@@ -31,7 +32,7 @@ class Sungjuk:
 
     name = property(get_student_name, set_student_name)
 
-    # --- kor(국어) ---
+    # --- kor ---
     def get_student_korean_score(self):
         return self._student_kor
 
@@ -40,16 +41,7 @@ class Sungjuk:
 
     kor = property(get_student_korean_score, set_student_korean_score)
 
-    # --- eng(영어) ---
-    def get_student_english_score(self):
-        return self._student_eng
-
-    def set_student_english_score(self, eng):
-        self._student_eng = eng
-
-    eng = property(get_student_english_score, set_student_english_score)
-
-    # --- math(수학) ---
+    # --- math ---
     def get_student_math_score(self):
         return self._student_math
 
@@ -58,7 +50,16 @@ class Sungjuk:
 
     math = property(get_student_math_score, set_student_math_score)
 
-    # --- total(총합) ---
+    # --- eng ---
+    def get_student_english_score(self):
+        return self._student_eng
+
+    def set_student_english_score(self, eng):
+        self._student_eng = eng
+
+    eng = property(get_student_english_score, set_student_english_score)
+
+    # --- total ---
     def get_student_total(self):
         return self._total
 
@@ -67,7 +68,7 @@ class Sungjuk:
 
     total = property(get_student_total, set_student_total)
 
-    # --- avg(평균) ---
+    # --- avg ---
     def get_student_avg(self):
         return self._avg
 
@@ -76,7 +77,7 @@ class Sungjuk:
 
     avg = property(get_student_avg, set_student_avg)
 
-    # --- grade(등급) ---
+    # --- grade ---
     def get_student_grade(self):
         return self._grade
 
@@ -85,7 +86,7 @@ class Sungjuk:
 
     grade = property(get_student_grade, set_student_grade)
 
-
+    # --------------------------
     def input_info(self):
         self._student_num = input("Input student number: ").strip()
         self._student_name = input("Input student name: ").strip()
@@ -111,20 +112,14 @@ class Sungjuk:
             self._grade = "가"
 
     def output_grade(self):
-        print("")
-        print("\t\t\t\t\t\t\t***성적표***\t\t\t\t\t\t")
-        print("======================================================================")
-        print("\t학번\t\t이름\t\t국어\t\t영어\t\t수학\t\t총점\t\t평균\t\t등급")
-        print("======================================================================")
-        print("\t%4s \t%3s   %4d    %4d    %4d    %4d   %6.2f   %2s" %
+        print("%4s %3s %4d %4d %4d %4d %6.2f %2s" %
               (self._student_num, self._student_name,
                self._student_kor, self._student_eng, self._student_math,
                self._total, self._avg, self._grade))
-        print("======================================================================")
 
 if __name__ == "__main__":
     sungjuk = Sungjuk()
-    sungjuk.input_info()    # 학생정보 입력
-    sungjuk.input_score()   # 학생 성적 입력
-    sungjuk.calc_grade()    # 성적 계산
-    sungjuk.output_grade()  # 결과 출력
+    sungjuk.input_info()
+    sungjuk.input_score()
+    sungjuk.calc_grade()
+    sungjuk.output_grade()

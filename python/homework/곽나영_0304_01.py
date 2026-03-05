@@ -86,7 +86,8 @@ def print_sungjuk():
                    float(data["avg"]),
                    data["grade"]))
         print("======================================================================")
-        print("\t\t\t\t\t 총 학생수: %d\t\t 평균 성적: %.2f" % (std_num, total/std_num))
+        print("\t\t\t\t\t 총 학생수: %d\t\t 평균 성적: %.2f" % (std_num, total/std_num)) # 학생수는 len(rd)로도 할 수 있음
+        fp.close()
     else:
         print("\n출력할 정보가 없음!!!")
 
@@ -158,7 +159,9 @@ def update_sungjuk():
 
         if found:
             fp2 = open("sungjuk_data.csv", "w", encoding="utf-8", newline='')
-            fieldnames = ["student_num", "student_name", "student_kor", "student_eng", "student_math", "total_score", "avg", "grade"]
+            fieldnames = ["student_num", "student_name", "student_kor",
+                          "student_eng", "student_math", "total_score",
+                          "avg", "grade"]
             wr = csv.DictWriter(fp2, fieldnames=fieldnames)
             wr.writeheader()
             wr.writerows(lst)
@@ -225,6 +228,7 @@ if __name__ == "__main__":
             search_sungjuk()
         elif menu == 4:
             update_sungjuk()
+
         elif menu == 5:
             delete_sungjuk()
         elif menu == 6:
